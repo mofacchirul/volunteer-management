@@ -1,0 +1,12 @@
+body.dark {
+    background-color: black;
+    color: black;
+}
+
+
+body.dark .navbar.navbar-start{
+    background-color: white;
+}
+body.dark .navbar a.navbar-start {
+    color: white;
+}
