@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
     thumbnail :postData.thumbnail
   };
 
-  fetch("http://localhost:5000/Volunteers_apply", {
+  fetch("https://assignment-11-server-side-mu-ten.vercel.app//Volunteers_apply", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(applicationData),

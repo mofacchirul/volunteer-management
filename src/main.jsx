@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element:<PriviteRouter>
           <MyPost></MyPost>
         </PriviteRouter>,
-        loader:()=>fetch('http://localhost:5000/Volunteers_apply')
+        loader:()=>fetch('https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply')
         
       },
       {
