@@ -55,29 +55,30 @@ const Add_Volunteer = () => {
       tags: tagArray,
     };
   
-    setError("");
-  
-    fetch("http://localhost:5000/volunteerapply", {
+    setError(""); 
+    fetch('https://assignment-11-server-side-mu-ten.vercel.app/Volunteers', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(finalData),
     })
-      .then((res) => res.json())
+      .then((res) =>res.json())
       .then((data) => {
         if (data.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Job has been added.",
+            title: "Data has been added.",
             showConfirmButton: false,
             timer: 1500,
           });
         }
-       
       })
-      .catch((err) => console.error("Error:", err));
+      .catch((err) => {
+        console.error("Error:", err);
+      });
+    
   };
   
   return (

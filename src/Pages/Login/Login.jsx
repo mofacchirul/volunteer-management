@@ -5,13 +5,17 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Provider/Provider';
 import Swal from 'sweetalert2';
 import Google from '../../Firebase/Google';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 const Login = () => {
   const {Login}= useContext(AuthContext)
-  const location = useLocation();
-    const navigate = useNavigate();
-    
-    const from = location.state || '/';
+
+
+const location = useLocation();
+const navigate = useNavigate();
+
+const from = location.state || '/';
+
+
   const HandleSIngIn = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -19,11 +23,6 @@ const Login = () => {
   
     Login(email, password)
       .then((result) => {
-        Swal.fire({
-          title: "Login success",
-          icon: "success",
-          draggable: true,
-        });
         navigate(from);
       })
       .catch((error) => {

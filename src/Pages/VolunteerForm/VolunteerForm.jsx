@@ -1,55 +1,55 @@
 import React, { useContext, useState } from "react";
-import { toast } from "react-toastify";
+
 import { AuthContext } from "../../Provider/Provider";
+import Swal from "sweetalert2";
 
 const VolunteerForm = ({ postData, userData, onClose }) => {
   const [suggestion, setSuggestion] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+
 const{user}=useContext(AuthContext)
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // Prepare the application data
-    const applicationData = {
-      volunteerId: postData._id,
-      volunteerName: userData.name,
-      volunteerEmail: userData.email,
-      suggestion,
-      status: "requested",
-      appliedAt: new Date(),
-    };
 
-    // Basic validation
-    if (!userData.email || userData.email === "Not Provided") {
-      toast.error("You must be logged in to apply as a volunteer.");
-      return;
-    }
-
-    try {
-      setSubmitting(true);
-      const response = await fetch("http://localhost:5000/volunteerapply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(applicationData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        toast.success(result.message || "Request submitted successfully!");
-        onClose(); 
-      } else {
-        toast.error(result.message || "Failed to submit the request.");
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("An error occurred. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
+  const applicationData = {
+    volunteerId: postData._id,
+    volunteerName: user.displayName, 
+    volunteerEmail: user.email,
+    suggestion, 
+    status: "requested",
+    appliedAt: new Date(),
+    postTitle : postData.postTitle,
+    thumbnail :postData.thumbnail
   };
+
+  fetch("http://localhost:5000/Volunteers_apply", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(applicationData),
+  })
+ .then((res) => res.json())
+    .then((data) => {
+      if (data.insertedId) {
+        Swal.fire(
+          "Volunteer Successful",
+          "Your request has been confirmed!",
+          "success"
+        );
+      }
+    })
+    .catch((err) => {
+   
+      Swal.fire(
+        "Error",
+        "There was a problem submitting your request. Please try again later.",
+        "error"
+      );
+    });
+  
+};
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -181,36 +181,29 @@ const{user}=useContext(AuthContext)
           </div>
 
           {/* Editable Suggestion Field */}
-          <div className="mt-4">
-            <label className="block font-medium mb-1">Suggestion</label>
-            <textarea
-              value={suggestion}
-              onChange={(e) => setSuggestion(e.target.value)}
-              required
-              rows="4"
-              className="w-full border rounded p-2"
-              placeholder="Enter your suggestion or message..."
-            ></textarea>
-          </div>
+          
+{/* Editable Suggestion Field */}
+<div className="mt-4">
+  <label className="block font-medium mb-1">Suggestion</label>
+  <textarea
+    value={suggestion}
+    onChange={(e) => setSuggestion(e.target.value)} // Update state on change
+    required
+    rows="4"
+    className="w-full border rounded p-2"
+    placeholder="Enter your suggestion or message..."
+  ></textarea>
+</div>
 
           {/* Submit Button */}
           <div className="flex justify-end mt-6 gap-4">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
-              disabled={submitting}
-            >
-              Cancel
-            </button>
+          
             <button
               type="submit"
-              className={`px-4 py-2 bg-info text-white rounded hover:bg-blue-600 ${
-                submitting ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              disabled={submitting}
+              className={'px-4 py-2 bg-info text-white rounded hover:bg-blue-600 '}
+   
             >
-              {submitting ? "Submitting..." : "Request"}
+             Request
             </button>
           </div>
         </form>

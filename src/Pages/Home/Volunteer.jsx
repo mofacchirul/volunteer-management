@@ -6,10 +6,10 @@ import { easeOut } from 'motion';
 const Volunteer = () => {
     const [valunteers,setvalunteers]= useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/volunteer')
+        fetch('https://assignment-11-server-side-mu-ten.vercel.app/Volunteers')
         .then(res=>res.json())
         .then(data=>{
-            setvalunteers(data)
+         setvalunteers(data)
         })
     },[])
  

@@ -4,9 +4,9 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/Provider';
 
-// Create an Axios instance
+
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:5000/Volunteer',
  withCredentials: true
 });
 
@@ -19,17 +19,17 @@ useEffect(()=>{
    axios.interceptors.response.use(response=>{
     return response
    } , 
-   error=>{
-    if(error.status === 401 || error.status === 403){
+   (error)=>{
+    if(error.response?.status === 401 || error.response?.status === 403){
         Singout()
     .then(result=>{
-        navigate("/login")
+        navigate('/login')
     })
     .catch(error=>{
 
     })
     }
-    return Promise.reject(error)
+    return Promise.reject(error);
    }
 
 

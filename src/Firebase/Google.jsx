@@ -1,8 +1,15 @@
 import React, { useContext } from 'react';
 import GogleImges from '../assets/icons8-google-100.png'
 import { AuthContext } from '../Provider/Provider';
+import {  useNavigate } from 'react-router-dom';
 const Google = () => {
     const {google}=useContext(AuthContext);
+
+const navigate = useNavigate();
+
+
+  
+    
     return (
         <div>
            <div className="divider">OR</div> 

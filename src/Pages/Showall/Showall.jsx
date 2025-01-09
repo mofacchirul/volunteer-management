@@ -4,7 +4,7 @@ import Valunteer from '../Home/valunteer';
 const Showall = () => {
     const [valunteers, setVolunteers] = useState([]);
      useEffect(() => {
-        fetch("http://localhost:5000/Volunteers")
+        fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers")
           .then((res) => res.json())
           .then((data) => setVolunteers(data));
       }, []);

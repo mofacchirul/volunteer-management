@@ -7,10 +7,8 @@ import { AuthContext } from '../../Provider/Provider';
 import Google from '../../Firebase/Google';
 import { Link } from 'react-router-dom';
 
-const Resistance = () => {
-    
-    const{Resistacesing,UpdateProfile}= useContext(AuthContext)
-  
+const Resistance = () => { 
+    const{Resistacesing,UpdateProfile}= useContext(AuthContext) 
 const Handleresistance=(event)=>{
   
     event.preventDefault()
@@ -44,7 +42,6 @@ const Handleresistance=(event)=>{
         photoURL: photo,
       })
      
-      console.log(result.user);
       
 
     })

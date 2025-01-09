@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { MdViewModule, MdViewList } from "react-icons/md";
 import Valunteer from "../Home/valunteer";
-
 const All_volunteer = () => {
   const [valunteers, setVolunteers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [view, setView] = useState("grid");
 
   useEffect(() => {
-    fetch("http://localhost:5000/Volunteers")
+  
+    fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers")
       .then((res) => res.json())
       .then((data) => setVolunteers(data));
   }, []);

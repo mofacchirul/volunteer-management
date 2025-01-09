@@ -7,10 +7,10 @@ import { MdDateRange, MdOutlineVolunteerActivism } from "react-icons/md";
 import { GoOrganization } from "react-icons/go";
 import { IoIosContact } from "react-icons/io";
 import VolunteerForm from "../VolunteerForm/VolunteerForm";
- // Import the form component
+
 
 const View_Details = () => {
-  const data = useLoaderData(); // Load volunteer post data
+  const data = useLoaderData(); 
   const [showModal, setShowModal] = useState(false);
 
   return (

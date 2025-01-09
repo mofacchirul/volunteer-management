@@ -4,8 +4,9 @@ import auth from '../Firebase/Firebase.int';
 import axios from 'axios';
 export const AuthContext = createContext()
 const Provider = ({children}) => {
-const [Loding,setloding]= useState(true)
+
 const [user,setuser]=useState(null);
+const [loding,setloding]= useState(true)
 const provider = new GoogleAuthProvider()
 
 const Resistacesing =(email,password)=>{
@@ -23,24 +24,23 @@ useEffect(()=>{
 const unscrib = onAuthStateChanged(auth,currentUser=>{
        
         setuser(currentUser)
-            // if(currentUser?.email){
-            //     const user = {email:currentUser.email}
-            //     axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
-            //     .then(res =>{
-                  
-            //       setloding(false)
-            //     })
-                
-            //   }
-            //   else{
-            //     axios.post('http://localhost:5000/login',{},{withCredentials:true})
-            //     .then(res =>{
-            //       setloding(false)
-            //     })
+            if(currentUser?.email){
+                const user = {email : currentUser.email}
+                axios.post('https://assignment-11-server-side-mu-ten.vercel.app/jwt',{user:user},{withCredentials:true})
+                .then(res =>{ 
+                  setloding(false)
+                })
+              }
+              
+              else{
+                axios.post('https://assignment-11-server-side-mu-ten.vercel.app/loginout',{},{withCredentials:true})
+                .then(res =>{
+                  setloding(false)
+                })
                
-            //   }
+              }
 
-            setloding(false)
+           
     })
     return ()=>{
         unscrib()
@@ -64,7 +64,7 @@ const UpdateProfile = (update)=>{
 const info={
     Resistacesing,
     Login,
-    Loding,
+    loding,
     user,
     Singout,
     UpdateProfile,
