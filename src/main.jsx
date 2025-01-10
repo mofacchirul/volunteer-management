@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         element:<PriviteRouter>
           <View_Details></View_Details>
         </PriviteRouter>,
-        loader:({params})=>fetch(`https://assignment-11-server-side-mu-ten.vercel.app/volunteer/${params.id}`),    
+        loader:({params})=>fetch(`https://assignment-11-server-side-mu-ten.vercel.app/Volunteers/${params.id}`),    
       },
       {
         path:'/showall',
