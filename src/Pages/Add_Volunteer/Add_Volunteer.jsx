@@ -36,7 +36,6 @@ const Add_Volunteer = () => {
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
   
-    // Construct the final data structure
     const finalData = {
       thumbnail: initialData.thumbnail,
       postTitle: initialData.postTitle,

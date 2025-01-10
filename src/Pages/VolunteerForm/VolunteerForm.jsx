@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
     thumbnail :postData.thumbnail
   };
 
-  fetch("https://assignment-11-server-side-mu-ten.vercel.app//Volunteers_apply", {
+  fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(applicationData),
@@ -65,10 +65,10 @@ const handleSubmit = (e) => {
         </div>
         <form onSubmit={handleSubmit}>
           {/* Thumbnail Image */}
-          <div className="mb-4">
+          <div className="mb-4" >
             <img
-              src={postData.thumbnail}
-              alt={postData.postTitle}
+              src={postData.thumbnail || ""}
+              alt={postData.postTitle || ""}
               className="w-full h-48 object-cover rounded"
             />
           </div>
@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Post Title</label>
               <input
                 type="text"
-                value={postData.postTitle}
+                value={postData.postTitle || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -91,7 +91,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Category</label>
               <input
                 type="text"
-                value={postData.category}
+                value={postData.category || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -102,7 +102,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Location</label>
               <input
                 type="text"
-                value={postData.location}
+                value={postData.location || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -115,7 +115,7 @@ const handleSubmit = (e) => {
               </label>
               <input
                 type="number"
-                value={postData.volunteersNeeded}
+                value={postData.volunteersNeeded || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -137,7 +137,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Organizer Name</label>
               <input
                 type="text"
-                value={postData.organizer.name}
+                value={postData.organizer.name || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -148,7 +148,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Organizer Email</label>
               <input
                 type="email"
-                value={postData.organizer.email}
+                value={postData.organizer.email || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />
@@ -162,7 +162,7 @@ const handleSubmit = (e) => {
               <label className="block font-medium mb-1">Volunteer Name</label>
               <input
                 type="text"
-                value={user.displayName}
+                value={user.displayName || ""}
                 readOnly
                 className="w-full border rounded p-2 bg-gray-100"
               />

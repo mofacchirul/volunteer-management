@@ -23,7 +23,12 @@ const from = location.state || '/';
   
     Login(email, password)
       .then((result) => {
-        navigate(from);
+         Swal.fire({
+                title: "Login success",
+                icon: "success",
+                draggable: true
+              });
+        navigate('/')
       })
       .catch((error) => {
         Swal.fire({

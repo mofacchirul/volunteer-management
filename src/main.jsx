@@ -18,6 +18,7 @@ import Showall from './Pages/Showall/Showall';
 
 import VolunteerForm from './Pages/VolunteerForm/VolunteerForm';
 import PriviteRouter from './Private/Private';
+import Update from './Pages/Update/Update';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,12 @@ const router = createBrowserRouter([
         </PriviteRouter>
         
        
+      },
+      {
+        path:'/update',
+        element:<PriviteRouter>
+          <Update></Update>
+        </PriviteRouter>
       }
     ]
   },

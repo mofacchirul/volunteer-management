@@ -5,10 +5,12 @@ import Swal from 'sweetalert2';
 import Lottie from 'lottie-react';
 import { AuthContext } from '../../Provider/Provider';
 import Google from '../../Firebase/Google';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Resistance = () => { 
     const{Resistacesing,UpdateProfile}= useContext(AuthContext) 
+    const navigate = useNavigate()
 const Handleresistance=(event)=>{
   
     event.preventDefault()
@@ -18,10 +20,11 @@ const Handleresistance=(event)=>{
     const password = event.target.password.value;
     const passwordRegex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
   
-    const user ={name,email,password,photo}
-    console.log(user);
+
+   
     
   if (!passwordRegex.test(password)) {
+   
     Swal.fire({
       title: "Invalid Password",
       text: "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.",
@@ -29,8 +32,7 @@ const Handleresistance=(event)=>{
       draggable: true,
     });
     return;
-  }
-   
+  } 
     Resistacesing(email,password)
     .then(result=>{
       Swal.fire({
@@ -42,7 +44,7 @@ const Handleresistance=(event)=>{
         photoURL: photo,
       })
      
-      
+      navigate('/')
 
     })
     .then(error=>{
