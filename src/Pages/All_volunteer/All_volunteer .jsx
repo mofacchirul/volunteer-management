@@ -32,7 +32,7 @@ const All_volunteer = () => {
             </Helmet>
       <div className="grid  grid-cols-1  lg:grid-cols-2 gap-5 mb-5">
         <div className="flex gap-3 mx-auto w-1/2 lg:w-full  items-center">
-          <h1 className="lg:text-3xl text-info font-bold">Search By Title:</h1>
+          <h1 className="lg:text-2xl  text-info font-bold">Search By Title:</h1>
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
