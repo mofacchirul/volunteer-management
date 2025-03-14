@@ -4,13 +4,27 @@ import { MdBrowserUpdated } from "react-icons/md";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MyPost = () => {
+  // 🟢 Step 1: Data Load & Ensure Array
   const loadedData = useLoaderData() || [];
-  const [datas, setDatas] = useState(loadedData); // Local State for UI Update
+  console.log("Loaded Data:", loadedData); // Debugging Check
+  
+  const [datas, setDatas] = useState(Array.isArray(loadedData) ? loadedData : []);
 
+  useEffect(() => {
+    if (Array.isArray(loadedData)) {
+      setDatas(loadedData);
+    } else {
+      setDatas([]); // Prevents the map error
+    }
+  }, [loadedData]);
+
+  // 🗑️ Delete Function
   const handleDelete = (id) => {
+    console.log(id);
+    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -29,10 +43,15 @@ const MyPost = () => {
                 text: "Your post has been deleted.",
                 icon: "success",
               });
-
-              // Update UI without refresh
+              
               const updatedData = datas.filter((data) => data._id !== id);
               setDatas(updatedData);
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: "Could not delete the post. Try again.",
+                icon: "error",
+              });
             }
           })
           .catch((error) => console.error("Error deleting:", error));
@@ -40,7 +59,8 @@ const MyPost = () => {
     });
   };
 
-  if (datas.length === 0) {
+  // 🛑 Step 2: Handle Empty Data
+  if (!Array.isArray(datas) || datas.length === 0) {
     return (
       <p className="text-center text-gray-600">
         No volunteer need posts found. Add a new post to manage here.

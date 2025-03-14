@@ -24,8 +24,8 @@ const All_volunteer = () => {
 
   return (
     <div className=" max-w-6xl mx-auto  p-5">
-      <div className="grid grid-cols-2 gap-5 mb-5">
-        <div className="flex gap-3 items-center">
+      <div className="grid  grid-cols-1  lg:grid-cols-2 gap-5 mb-5">
+        <div className="flex gap-3 mx-auto w-1/2 lg:w-full  items-center">
           <h1 className="lg:text-3xl text-info font-bold">Search By Title:</h1>
           <label className="input input-bordered flex items-center gap-2">
             <input
@@ -74,7 +74,7 @@ const All_volunteer = () => {
          className={`grid gap-5 ${
             view === "grid"
               ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-              : "grid-cols-1"
+              : "grid-cols-1  w-[500px] mx-auto"
           }`}
   
       >

@@ -11,8 +11,7 @@ const Update = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     const UpdateData = {
-        thumbnail: data.thumbnail,
-       
+        thumbnail: data.thumbnail,  
         description: data.description,
         category: data.category,
         location: data.location,

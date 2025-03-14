@@ -27,7 +27,7 @@ const Banner3 = () => {
             className="text-5xl font-bold">
            Volunteer management 
             </motion.h1>
-            <p className="py-6">
+            <p className="py-6 ">
             Volunteer management is the process of working with volunteers to achieve an organization's goals. It involves recruiting, training, supporting, and managing 
             volunteers. The goal is to ensure that volunteers are engaged and productive, and that their efforts help the organization.
             </p>
