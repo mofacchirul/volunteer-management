@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const MyPost = () => {
   // 🟢 Step 1: Data Load & Ensure Array
@@ -35,7 +36,7 @@ const MyPost = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/Volunteers_apply/${id}`)
+        axios.delete(`https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire({
@@ -70,6 +71,11 @@ const MyPost = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title> Volunteer | My Post </title>
+                
+            </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>

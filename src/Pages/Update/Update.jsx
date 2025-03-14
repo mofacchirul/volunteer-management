@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/Provider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Update = () => {
     const {user}= useContext(AuthContext)
@@ -23,7 +24,7 @@ const Update = () => {
         updatedAt: new Date().toISOString(),
         
       };
-       fetch("http://localhost:5000/Volunteers_apply", {
+       fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(UpdateData),
@@ -51,6 +52,12 @@ const Update = () => {
 
   return (
     <div className="add-volunteer-post max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      
+       <Helmet>
+                      <meta charSet="utf-8" />
+                      <title>Volunteer | UPdate </title>
+                      
+                  </Helmet>
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Add Volunteer Need Post</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdViewModule, MdViewList } from "react-icons/md";
 import Valunteer from "../Home/valunteer";
+import { Helmet } from "react-helmet";
 const All_volunteer = () => {
   const [valunteers, setVolunteers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,7 +9,7 @@ const All_volunteer = () => {
 
   useEffect(() => {
   
-    fetch("http://localhost:5000/Volunteers")
+    fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers")
       .then((res) => res.json())
       .then((data) => setVolunteers(data));
   }, []);
@@ -24,6 +25,11 @@ const All_volunteer = () => {
 
   return (
     <div className=" max-w-6xl mx-auto  p-5">
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title> Volunteer | All Volunteer </title>
+                
+            </Helmet>
       <div className="grid  grid-cols-1  lg:grid-cols-2 gap-5 mb-5">
         <div className="flex gap-3 mx-auto w-1/2 lg:w-full  items-center">
           <h1 className="lg:text-3xl text-info font-bold">Search By Title:</h1>

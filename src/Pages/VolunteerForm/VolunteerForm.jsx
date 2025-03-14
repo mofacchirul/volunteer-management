@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/Provider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const VolunteerForm = ({ postData, userData, onClose }) => {
   const [suggestion, setSuggestion] = useState("");
@@ -20,7 +21,7 @@ const VolunteerForm = ({ postData, userData, onClose }) => {
       thumbnail: postData.thumbnail,
     };
 
-    fetch("http://localhost:5000/Volunteers_apply", {
+    fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(applicationData),
@@ -38,6 +39,12 @@ const VolunteerForm = ({ postData, userData, onClose }) => {
 
   return (
     <div className="fixed dark:text-white inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title> Volunteer | from </title>
+                
+            </Helmet>
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-2xl overflow-y-auto max-h-screen">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold">Volunteer Application</h2>
