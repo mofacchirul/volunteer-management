@@ -1,17 +1,19 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import { Outlet } from 'react-router-dom';
+
 import Volunteer from './Volunteer';
 import HomePage from '../HomePage/Homepage';
 import Banner3 from '../Banner3/Banner3';
+import { Outlet } from 'react-router-dom';
 const Home = () => {
     return (
-        <div className='py-10'>
+        <div >
             <Banner></Banner>
-            <Outlet></Outlet>
-            <Volunteer></Volunteer>
+           
+            <Volunteer ></Volunteer>
             <Banner3></Banner3>
             <HomePage></HomePage>
+            <Outlet></Outlet>
        
         </div>
     );

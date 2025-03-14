@@ -24,7 +24,7 @@ const Update = () => {
         updatedAt: new Date().toISOString(),
         
       };
-       fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply", {
+       fetch("http://localhost:5000/Volunteers_apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(UpdateData),

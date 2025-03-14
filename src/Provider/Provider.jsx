@@ -18,6 +18,20 @@ const Login =(email,password)=>{
     setloding(true)
     return signInWithEmailAndPassword(auth,email,password);
 }
+const google =()=>{
+  setloding(true) 
+  signInWithPopup(auth,provider)
+
+
+
+}
+
+const Singout =()=>{
+  return signOut(auth);
+}
+const UpdateProfile = (update)=>{
+  return updateProfile(auth.currentUser,update)
+}
 
 
 useEffect(()=>{
@@ -26,14 +40,14 @@ const unscrib = onAuthStateChanged(auth,currentUser=>{
         setuser(currentUser)
             if(currentUser?.email){
                 const user = {email : currentUser.email}
-                axios.post('https://assignment-11-server-side-mu-ten.vercel.app/jwt',{user:user},{withCredentials:true})
+                axios.post('http://localhost:5000/jwt',{user:user},{withCredentials:true})
                 .then(res =>{ 
                   setloding(false)
                 })
               }
               
               else{
-                axios.post('https://assignment-11-server-side-mu-ten.vercel.app/loginout',{},{withCredentials:true})
+                axios.post('http://localhost:5000/loginout',{},{withCredentials:true})
                 .then(res =>{
                   setloding(false)
                 })
@@ -47,19 +61,9 @@ const unscrib = onAuthStateChanged(auth,currentUser=>{
     }
 },[])
 
-const google =()=>{
-    setloding(true) 
-    signInWithPopup(auth,provider)
-  
-  
-  }
 
-const Singout =()=>{
-    return signOut(auth);
-}
-const UpdateProfile = (update)=>{
-    return updateProfile(auth.currentUser,update)
-}
+
+
 
 const info={
     Resistacesing,

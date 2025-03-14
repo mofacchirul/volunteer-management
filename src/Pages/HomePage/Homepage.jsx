@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className="bg-sky-400 rounded-2xl py-12">
+    <div className="bg-sky-400 rounded-2xl max-w-6xl mx-auto py-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6 md:px-12">
        
         <div className="space-y-6">
@@ -38,7 +38,7 @@ const HomePage = () => {
                   />
                 </svg>
               </span>
-              <h3 className="text-xl font-semibold text-blue-600">
+              <h3 className="text-xl font-semibold text-sky-400">
               Clean Water Initiative
               </h3>
             </div>
@@ -66,7 +66,7 @@ const HomePage = () => {
                   />
                 </svg>
               </span>
-              <h3 className="text-xl font-semibold text-green-600">
+              <h3 className="text-xl font-semibold text-sky-400">
                 Environment
               </h3>
             </div>
@@ -94,7 +94,7 @@ const HomePage = () => {
                   />
                 </svg>
               </span>
-              <h3 className="text-xl font-semibold text-orange-600">
+              <h3 className="text-xl font-semibold text-sky-400">
               Beach Cleanup Initiative
               </h3>
             </div>
@@ -122,7 +122,7 @@ const HomePage = () => {
                   />
                 </svg>
               </span>
-              <h3 className="text-xl font-semibold text-yellow-600">
+              <h3 className="text-xl font-semibold text-sky-400">
                 Education
               </h3>
             </div>

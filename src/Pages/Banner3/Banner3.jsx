@@ -6,7 +6,7 @@ import { easeOut } from 'motion';
 const Banner3 = () => {
     return (
         
-        <div className="hero my-10 ">
+        <div className="hero my-10 py-10 max-w-7xl mx-auto ">
         <div className="hero-content flex-col lg:flex-row-reverse">
          <div className='flex-1 space-y-4  gap-5'>
          <motion.img

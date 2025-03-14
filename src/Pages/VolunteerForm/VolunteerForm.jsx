@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 const VolunteerForm = ({ postData, userData, onClose }) => {
   const [suggestion, setSuggestion] = useState("");
-
 const{user}=useContext(AuthContext)
 
 
@@ -24,7 +23,7 @@ const handleSubmit = (e) => {
     thumbnail :postData.thumbnail
   };
 
-  fetch("https://assignment-11-server-side-mu-ten.vercel.app/Volunteers_apply", {
+  fetch("http://localhost:5000/Volunteers_apply", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(applicationData),

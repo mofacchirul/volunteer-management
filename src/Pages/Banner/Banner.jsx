@@ -5,7 +5,7 @@ import slid_3 from '../../assets/Volunteerism Can Impact Employee Health and Wel
 import slid_4 from '../../assets/🌊 The heroes at @cleanbeachmiami!.jpg'
 const Banner = () => {
     return (
-        <div>
+        <div className='max-w-full'>
             <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img
