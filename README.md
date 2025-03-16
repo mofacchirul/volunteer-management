@@ -3,7 +3,7 @@
 "Volunteer Management made simple. Our platform provides everything you need to onboard, manage, and communicate with your volunteers, ensuring a seamless experience for both coordinators and participants."  
 
 ## 📌 Live Demo  
-🔗 **Visit Website:** [Volunteer management](https://volunteer-management-dee20.web.app/)  
+🔗 **Visit Website:** [Volunteer management](https://volunteer-management-dee20.web.app)  
 
 ---
 
